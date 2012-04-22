@@ -1,0 +1,131 @@
+Interactive LaTeX Tutorial
+==========================
+
+Page 1 - Getting Started
+------------------------
+
+In LaTeX you write in code and then the latex program turns this into a formatted PDF. The advantage of this is that your content isn't distored by formatting like it can be in word processors, and you have very direct and precise control over the formatting.
+
+Button - "Got it! - Let's get started"
+
+*Text editor appears*
+
+There are three lines that you will have in _every_ LaTeX document you write. The first of these is \documentclass{article} which appears at the top of your file. Type this into the box below now.
+
+...
+
+Great! That tells LaTeX which format to use as a starting point for laying out your document. _article_ is only one of many that you can choose, and once you get a bit more advanced you can write your own. 
+
+The next two lines you need are \begin{document} ... \end{document}. These tell LaTeX which bits of your code you want to be output in the document. Anything you write between these will be visible in the formatted document. Add these two lines below \documentclass{article}.
+
+...
+
+Great! We almost have a complete LaTeX document, but first we need some content. Type in some text between \begin{document} and \end{document} and see how it is output in the formatted document.
+
+...
+
+Excellent! You've just created your first LaTeX document! Wasn't that fun? Next we'll look at how to write longer documents with paragraphs and formatted text.
+
+Button - "Next Step"
+
+Page 2 - Formatting Text
+------------------------
+
+In the code below, we've got a much longer document than before. Most of a LaTeX document is just the text that you want to include in your document - it's easy really! The first bit of special formatting that LaTeX does is automatically taking a new paragraph whenever you leave a blank line. We've created one paragraph in the text below, but the second paragraphs is a bit long. Split it up into a couple of paragraphs so that it reads better.
+
+...
+
+Good job! Notice how LaTeX indents the first sentence of each paragraph automatically, except for the first one? How clever!
+
+So writing plain text is easy, but how do we add extra formatting like italics or bold? You can do this with _commands_. Commands are anything in LaTeX that starts with a backslash. We've already seen two: `\documentclass` and `\begin`. Generally these don't appear directly in the output, but instead tell LaTeX to do something. Commands can have arguments, like `\documentclass{article}`, where the argument comes in curly braces after the command.
+
+There is a command to make text italic. It is `\emph`, and you should give the text you want to be made italic as an argument:
+`\emph{This text is italic}` -> _This text is italic_.
+Pick a suitable word or phrase an make it italic in the text below.
+
+...
+
+Bravo! The \emph command stands for _emphasis_ rather than _italic_ because in LaTeX it's good practice to describe the purpose of the typesetting rather than what it actually does. If you're writing a 500 page textbook and at the last minute your publisher decides you should emphasise everything with bold type rather than italic, you then only need to change the meaning of \emph at the beginning of the document and everything will be bold instead. Try to keep this in mind while writing LaTeX, although it isn't a hard and fast rule.
+
+What happens if you put an \emph command inside another one? Try it and see!
+
+...
+
+The second one wasn't italic! That's because to emphasis something in a sentence that is already italic, we need to make it not italic! Once again LaTeX is very clever!
+
+Other useful formatting commands are \textbf{...} which makes text bold and \underline{...} which underlines text. Try adding these to the text.
+
+...
+
+Nice! Remember how we said \emph is for emphasis rather than directly for italics? Well, \textbf and \underline are much more direct in their meaning. It's worth trying to avoid using them too much directly. We'll see later how we can define our own commands that have more context.
+
+Feeling confident about formatting text? Then let's learn how to write mathematics! 
+
+Want more practice formatting text? Practice on our poem!
+
+Page 3 - Mathematics
+--------------------
+
+One of the great things about LaTeX is how easy it is to write beautiful mathematical formula. It's mathematics typesetting engine is really powerful so let's get a taste of what it can do. So far we've just looked at text, which LaTeX formats in _text mode_. To write mathematics we need to switch LaTeX to _math mode_. We can do this by enclosing our maths in $ signs. This makes LaTeX use different rules for laying it out. In the example below we've typeset the equation $x = 4$. Notice how it appears differently in the formatted document. The x is in a different font and the spacing is slightly different. This is because LaTeX typeset the equation in math mode.
+
+Try adding in another equation, something like $y = 2$.
+
+...
+
+Wonderful work!
+
+The first really useful feature of math mode is superscripts and subscripts. We write powers as superscripts so these come up all the time in maths! We can create a superscript in LaTeX with the ^ symbol. Put this between the base symbol and the symbol you would like to appear in the superscript: a^b -> $a^b$.
+
+Complete Pythagoras's famous theorem for the sides of a triangle (hint: $a^2 + b^2 = c^2$):
+
+... (a^2 + b^2 = ?)
+
+Very nice! Subscripts are just the same, except we use the _ symbol:
+a_b -> $a_b$.
+This is really useful for vectors or chemical formula. Complete the list of chemical formula below (hint: Water - "H_2O", Carbon Dioxode: $CO_2")
+
+...
+
+Perfect! You can put subscripts and superscripts onto the same symbol by putting one after the other:
+a_b^c or a^c_b -> $a_b^c$
+Notice that the order doesn't matter!
+
+
+Now for a trick question... How can I format $a^100$? What happens if I write a^100? Try it and see!
+
+...
+
+Oh dear, what's gone wrong? LaTeX only uses the very next symbol for the superscript so the next two zeros aren't put into it. If our superscript is longer than one character we can wrap it in {...} to put the whole thing in the superscript, e.g.
+a^{100} -> $a^{100}$
+The same is true for subscripts.
+
+Complete the list below (What of?)
+
+...
+
+Brilliant, you're a quick learner! Now what about all the fancy symbols and letters that we need to use in maths? Almost everything you'll ever need to use is provided by a LaTeX command. For example, you can get a greek letter alpha with the command \alpha. Each greek letter has a command which is just it's name. To get a capital Greek letter use a capitalised version of the command e.g. \Omega. Note that there are no capitalised commands for Alpha, (and some others) since these are the same as the Roman alphabet (A, B, E, etc).
+
+Try writing out some of the Greek letters below:
+
+...
+
+There are also lots of ways to compare things in maths. We have used the equals sign so far, but what about less then? That can be typeset with the command \lt. Greater than is \gt. Less than or equals is \le and greater than or equals is \ge. You're probably getting the idea now, so rather than going through all the symbols, I'm just going to point you at a nice list I've made here: ...
+
+Try typesetting some of the following equations (you'll need to look at the reference sheet to find the commands for some of these symbols):
+
+...
+
+Wow, look at you go! Fractions in LaTeX are really easy to typeset, just use the command \frac. This takes two arguments corresponding to the numerator and the denominator:
+\frac{a}{b} -> $\frac{a}{b}$.
+Try typesetting the following equations:
+
+...
+
+Super! There's just one more thing to look at in math mode and that's integrals and sums:
+\int -> $\int$ and \sum -> $\sum$.
+These are big symbols and are treated slightly differently. The superscripts and subscripts are used as limits on the integral and sum.
+Try typesetting the following equations:
+
+...
+
+Well done, you've graduated level 1 of the LaTeX course!

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>LaTeX Tutorial</title>
+        <link type="text/css" rel="stylesheet" href="bootstrap/bootstrap/css/bootstrap.css"></link>
+        <script src="jquery.js"></script>
+        <script src="markdown.js"></script>
+        <script src="require.js" data-main="index.js"></script>
+        <style>
+            .editor-pane {
+                width: 50%;
+                float: left;
+            }
+
+            .editor-pane-inner {
+                margin: 10px;
+            }
+
+            .pdf-pane {
+                width: 50%;
+                float: left;
+            }
+
+            .pdf-pane-inner {
+                margin: 10px;
+            }
+
+            .pdf-iframe {
+                border : 1px solid #ccc;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="editor-pane">
+            <div class="editor-pane-inner">
+                <div id="instructions" class="well" style="height: 180px;"></div>
+                <textarea id="editor"></textarea>
+            </div>    
+        </div>
+        <div class="pdf-pane">
+            <div class="pdf-pane-inner">
+            </div>
+        </div>
+    </body>
+</html>

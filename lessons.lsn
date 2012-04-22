@@ -1,0 +1,108 @@
+# Getting Started
+
+In LaTeX you write in code and then the latex program turns this into a formatted PDF.
+The advantage of this is that your content isn't distored by formatting like it can be in word processors, and you have very direct and precise control over the formatting.
+
+=progression
+{
+    button: "Got it! Let's get started!"
+}
+=endprogression
+
+There are three lines that are needed in _every_ LaTeX document you write.
+The first of these is `\documentclass{article}` which you should put at the top of your file. Type this into the editor below now.
+
+=progression
+{
+    codeSatisfies: function(code) {
+        return !!code.match(/\\documentclass\{article\}/);
+    }
+}
+=endprogression
+
+Nice work! That tells LaTeX which format to use as a starting point for laying out your document. `article` is only one of many that you can choose and once you get a bit more advanced you can write your own. 
+
+The next two lines you need are:
+
+    \begin{document}
+    
+    \end{document}
+    
+These tell LaTeX which bits of your code you want to be output in the document. Anything you write between these will be visible in the formatted document. Add these two lines below `\documentclass{article}`.
+
+=progression
+{
+    codeSatisfies: function(code) {
+        return !!code.match(/\\documentclass\{article\}[ \n]*\\begin\{document\}[ \n]*\\end\{document\}/)
+    }
+}
+=endprogression
+
+Excellent! We almost have a complete LaTeX document, but first we need some content. Type some text between `\begin{document}` and `\end{document}` and see how it appears in the formatted document.
+
+=progression
+{
+    codeSatisfies: function(code) {
+        return !!code.match(/\\documentclass\{article\}[ \n]*\\begin\{document\}[ \n]*[a-zA-Z]+[ \n]*\\end\{document\}/)
+    }
+}
+=endprogression
+
+Excellent! You've just created your first LaTeX document! Wasn't that fun? We'll use the output window as well from now on so feel free to play around to get used to it.
+
+Next we'll look at how to write longer documents with paragraphs and formatted text.
+
+=progression
+{
+    button: "Next Step"
+}
+=endprogression
+
+# Formatting Text
+
+The code below is much longer than before but the majority of it is just text which is included in the output.
+
+The first bit of special formatting that LaTeX does is automatically taking a new paragraph whenever you leave a blank line. 
+We've created one paragraph in the text below, but the remaining paragraphs are all running together. Split them up into a separate paragraphs so that it reads better.
+
+=editor
+\documentclass{article}
+
+\begin{document}
+
+The peacock is the national bird of India. They have colourful feathers, two legs and a small beak. They are famous for their dance. When a peacock dances it spreads its feathers like a fan. It has a long shiny dark blue neck. Peacocks are mostly found in the fields they are very beautiful birds. The females are known as Peahens. Their feathers are used for making jackets, purses etc. We can see them in a zoo.
+
+Ants are found everywhere in the world. They make their home in buildings, gardens etc. They live in anthills. Ants are very hardworking insects. Throughout the summers they collect food for the winter season. Whenever they find a sweet lying on the floor they stick to the sweet and carry it to their home. Thus, in this way, they clean the floor.Ants are generally red and black in colour. They have two eyes and six legs. They are social insects. They live in groups or colonies. Most ants are scavengers they collect whatever food they can find. They are usually wingless but they develop wings when they reproduce. Their bites are quite painful.
+Camels are called the ``ships of the desert''. They are used to carry people and loads from one place to another. They have a huge hump on their body where they store their fat. They can live without water for many days. Their thick fur helps them to stop the sunshine from warming their bodies. Camels have long necks and long legs. They have two toes on each foot. They move very quickly on sand. They eat plants, grasses and bushes. They do not harm anyone. Some camels have two humps. These camels are called Bactrian camels.
+An elephant is the biggest living animal on land. It is quite huge in size. It is usually black or grey in colour. Elephants have four legs, a long trunk and two white tusks near their trunk. Apart from this, they have two big ears and a short tail. Elephants are vegetarian. They eat all kinds of plants especially bananas. They are quite social, intelligent and useful animals. They are used to carry logs of wood from one place to another. They are good swimmers.
+
+\end{document}
+=endeditor
+
+=progression
+{
+    codeSatisfies: function(code) {
+        var body = code.match(/\\begin{document}((?:.|\n)*)\\end{document}/);
+        if (!body) return false;
+        body = body[1].replace(/(^\s*)|(\s*$)/g, "");
+        return (body.split("\n\n").length >= 4);
+    }
+}
+=endprogression
+
+Good job! Notice how LaTeX indents the first sentence of each paragraph automatically, except for the first one? How clever!
+
+So writing plain text is easy, but how do we add extra formatting like italics or bold? You can do this with _commands_. Commands are any words in your code that start with a backslash. We've already seen two: `\documentclass` and `\begin`. Generally these don't appear directly in the output, but instead tell LaTeX to do something. Commands can have arguments like `\documentclass{article}` where the argument comes in curly braces after the command.
+
+There is a command to make text italic. It is `\emph`, and you should give the text you want to be made italic as an argument:
+
+`\emph{This text is italic}` -> _This text is italic_
+
+=progression
+{
+    codeSatisfies: function(code) {
+        return !!code.match(/\\emph\{[^\{]+\}/);
+    }
+}
+=endprogression
+

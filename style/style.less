@@ -1,0 +1,46 @@
+@import "bootstrap/less/reset.less";
+@import "bootstrap/less/variables.less"; 
+@import "bootstrap/less/mixins.less";
+@import "bootstrap/less/scaffolding.less";
+@import "bootstrap/less/type.less";
+@import "bootstrap/less/buttons.less";
+@import "bootstrap/less/wells.less";
+
+.instructions-banner {
+    width: 50%;
+    margin: 0 25%;
+    .instructions-banner-inner {
+        margin: 10px;
+    }
+    .well {
+        margin-bottom: 0;
+    }
+}
+
+.editor-pane {
+    width: 50%;
+    margin-left: 25%;
+    float: left;
+    .editor-pane-inner {
+        margin: 10px;
+        margin-top: 0;
+    }
+}
+
+.pdf-pane {
+    width: 50%;
+    float: left;
+    .pdf-pane-inner {
+        margin: 10px;
+        margin-top: 0;
+    }
+}
+
+.editor {
+    .border-radius(5px);
+    border: 1px solid @grayLight;
+}
+.pdf-iframe {
+    .border-radius(5px);
+    border: 1px solid @grayLight;
+}

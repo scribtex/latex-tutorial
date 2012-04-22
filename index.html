@@ -2,46 +2,51 @@
 <html>
     <head>
         <title>LaTeX Tutorial</title>
-        <link type="text/css" rel="stylesheet" href="bootstrap/bootstrap/css/bootstrap.css"></link>
-        <script src="jquery.js"></script>
-        <script src="markdown.js"></script>
-        <script src="require.js" data-main="index.js"></script>
-        <style>
-            .editor-pane {
-                width: 50%;
-                float: left;
-            }
-
-            .editor-pane-inner {
-                margin: 10px;
-            }
-
-            .pdf-pane {
-                width: 50%;
-                float: left;
-            }
-
-            .pdf-pane-inner {
-                margin: 10px;
-            }
-
-            .pdf-iframe {
-                border : 1px solid #ccc;
-                border-radius: 5px;
-            }
-        </style>
+        <link type="text/css" rel="stylesheet" href="style/style.css"></link>
+        <script src="lib/jquery.js"></script>
+        <script src="lib/markdown.js"></script>
+        <script src="lib/require.js" data-main="lib/index.js"></script>
     </head>
 
     <body>
-        <div class="editor-pane">
-            <div class="editor-pane-inner">
-                <div id="instructions" class="well" style="height: 180px;"></div>
-                <textarea id="editor"></textarea>
-            </div>    
-        </div>
-        <div class="pdf-pane">
-            <div class="pdf-pane-inner">
+        <script id="framework-template" type="text/html">
+            <div class="instructions-banner">
+                <div class="instructions-banner-inner">
+                    <div class="well" id="instructions"></div>
+                </div>
             </div>
-        </div>
+
+            <div class="editor-pane">
+                <div class="editor-pane-inner">
+                    <textarea class="editor" id="editor"></textarea>
+                </div>    
+            </div>
+
+            <div class="pdf-pane">
+                <div class="pdf-pane-inner">
+                    <div class="auto-compile-instructions">
+                        &lt;-- Type some valid LaTeX in here to see the result
+                    </div>
+
+                    <div class="no-embedded-viewer">
+                        It looks your browser doesn't support embedded PDFs.
+                        This tutorial might be more pleasent if you could use a browser that does.
+                    </div>
+
+                    <div class="compiling">
+                        Compiling...
+                    </div>
+                </div>
+            </div>
+
+            <iframe class="pdf-iframe" id="pdf-iframe"></iframe>
+        </script>
+
+        <script id="instructions-template" type="text/html">
+            <div class="content">{{{content}}}</div>
+            {{#button}}
+                <p><a href="#" id="progress-button" class="btn btn-primary">{{{button}}}</a></p>
+            {{/button}}
+        </script>
     </body>
 </html>

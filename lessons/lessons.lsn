@@ -3,6 +3,12 @@
 In LaTeX you write in code and then the latex program turns this into a formatted PDF.
 The advantage of this is that your content isn't distored by formatting like it can be in word processors, and you have very direct and precise control over the formatting.
 
+=options
+{
+    showPdf: false
+}
+=endoptions
+
 =progression
 {
     button: "Got it! Let's get started!"
